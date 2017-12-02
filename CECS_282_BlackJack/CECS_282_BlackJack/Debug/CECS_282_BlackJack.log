@@ -1,0 +1,4 @@
+﻿  BlackJackPlayer.cpp
+c:\users\ruben\documents\visual studio 2017\projects\cecs_282_blackjack\cecs_282_blackjack\card.h(17): warning C4091: 'static ': ignored on left of 'Card::SUIT' when no variable is declared
+  CECS_282_BlackJack.vcxproj -> C:\Users\Ruben\Documents\Visual Studio 2017\Projects\CECS_282_BlackJack\Debug\CECS_282_BlackJack.exe
+  CECS_282_BlackJack.vcxproj -> C:\Users\Ruben\Documents\Visual Studio 2017\Projects\CECS_282_BlackJack\Debug\CECS_282_BlackJack.pdb (Partial PDB)
