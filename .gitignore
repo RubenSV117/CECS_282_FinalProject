@@ -326,7 +326,6 @@ ASALocalRun/
 CECS_282_BlackJack/.vs/CECS_282_BlackJack/v15/.suo
 CECS_282_BlackJack/.vs/CECS_282_BlackJack/v15/.suo
 *.db
-*.vcxproj
 *.tlog
 *.tlog
 *.ilk
