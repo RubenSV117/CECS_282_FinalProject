@@ -13,7 +13,7 @@ int main()
 	for (int i = 0; i < deck.getDeck().size(); i++)
 	{
 		deck.getDeck().at(i).printCard();
-		cout << " value: " << deck.getDeck().at(i).getValue() << endl;
+		cout << " value : " << deck.getDeck().at(i).getValue() << endl;
 	}
 
 
