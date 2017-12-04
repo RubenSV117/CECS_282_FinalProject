@@ -1,22 +1,20 @@
 #include"Card.h"
+#include "CardDeck.h"
+#include "Player.h"
+#include "Account.h"
 
 using namespace std;
 
 int main()
 {
-	Card c1(Card::SUIT::Hearts, '3');
-	Card c2(Card::SUIT::Diamonds, 'J');
-	Card c3(Card::SUIT::Spades, 'A');
-	Card c4(Card::SUIT::Clubs, 'K');
 
-	c1.printCard();
-	cout << " value: " << c1.getValue() << endl;
-	c2.printCard();
-	cout << " value: " << c2.getValue() << endl;
-	c3.printCard();
-	cout << " value: " << c3.getValue() << endl;
-	c4.printCard();
-	cout << " value: " << c4.getValue() << endl;
+	CardDeck deck;
+
+	for (int i = 0; i < deck.getDeck().size(); i++)
+	{
+		deck.getDeck().at(i).printCard();
+		cout << " value: " << deck.getDeck().at(i).getValue() << endl;
+	}
 
 
 	cout << endl;

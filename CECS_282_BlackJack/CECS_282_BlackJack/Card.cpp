@@ -4,17 +4,17 @@ Card::Card()
 {
 }
 
-Card::Card(SUIT suit, char rank)
+Card::Card(SUIT suit, string rank)
 {
 	this->suit = suit;
 	this->rank = rank;
 	
 	//numbered rank
-	if (isdigit(rank))
-		value = int(rank) - 48;
+	if (isdigit(rank[0]))
+		value = stoi(rank);
 
 	//Ace, value will be converted to 1 if the sum of current hand exceeds 21
-	else if (rank == 'A')
+	else if (rank[0] == 'A')
 		value = 11;
 
 	//J, Q, K

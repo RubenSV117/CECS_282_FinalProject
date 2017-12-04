@@ -16,7 +16,7 @@ class Card
 public:
 	static enum SUIT { Hearts, Diamonds, Spades, Clubs };
 	Card();
-	Card(SUIT suit, char rank);
+	Card(SUIT suit, string rank);
 	SUIT getSuit();
 	int getValue();
 	void printCard();
@@ -25,7 +25,7 @@ public:
 
 private:
 	SUIT suit;
-	char rank;
+	string rank;
 	int value;
 };
 #endif
