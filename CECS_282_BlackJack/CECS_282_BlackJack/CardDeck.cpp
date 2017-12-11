@@ -60,6 +60,11 @@ vector<Card> CardDeck::getDeck()
 	return deck;
 }
 
+void CardDeck::clear()
+{
+	deck.clear();
+}
+
 
 CardDeck::~CardDeck()
 {

@@ -16,13 +16,13 @@ private:
 
 public:
 	Account();
-	Account(Player p, double initialBal);
+	Account(Player p, int accountNum);
 	static int accountId;
 	int getId();
 	int getBalance();
 	void withdraw(double amount);
 	void deposit(double amount);
-	
+	double getInitialBal();
 	~Account();
 };
 #endif

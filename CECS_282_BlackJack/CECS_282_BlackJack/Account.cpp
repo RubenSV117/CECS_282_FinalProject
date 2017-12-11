@@ -17,8 +17,11 @@ void Account::withdraw(double amount)
 	cout << fixed << showpoint << setprecision(2);
 
 	if (balance - amount < 0)
-		cout << "\nInsufficient funds to place bet of $" << amount;
-
+	{
+		cout << "\nInsufficient funds to withdraw amount of $" << amount
+			<< " , current balance is $" << balance << endl;
+	}
+		
 	else
 		balance -= amount;
 
@@ -35,12 +38,52 @@ Account::Account()
 	balance = 0;
 }
 
-Account::Account(Player p, double initialBal)
+Account::Account(Player p, int accountNum)
 {
 	owner = p;
-	balance = initialBal;
+	balance = getInitialBal();
+	id = accountNum;
 }
 
+double Account::getInitialBal()
+{
+
+	cout << "\nEnter initial balance: $";
+
+	string amountStr;
+	cin >> amountStr;
+
+	bool isValid = true;
+
+	for (char c : amountStr)
+	{
+		if (!isdigit(c))
+			isValid = false;
+	}
+
+	if (isValid && stoi(amountStr) < 0)
+		isValid = false;
+
+	while (!isValid)
+	{
+
+		cout << "\nInavlid Amount, Enter intitial balance: $";
+		cin >> amountStr;
+
+		isValid = true;
+
+		for (char c : amountStr)
+		{
+			if (!isdigit(c))
+				isValid = false;
+		}
+
+		if (isValid && stoi(amountStr) < 0)
+			isValid = false;
+	}
+
+	return stod(amountStr);
+}
 
 Account::~Account()
 {

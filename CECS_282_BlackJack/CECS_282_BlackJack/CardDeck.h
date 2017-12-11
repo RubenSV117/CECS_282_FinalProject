@@ -13,6 +13,7 @@ public:
 	CardDeck();
 	void initialize();
 	vector<Card> getDeck();
+	void clear();
 	~CardDeck();
 };
 #endif
