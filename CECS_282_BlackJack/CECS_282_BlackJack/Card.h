@@ -19,6 +19,8 @@ public:
 	Card(SUIT suit, string rank);
 	SUIT getSuit();
 	int getValue();
+	void revertAceToOne();
+	string getRank();
 	void printCard();
 	~Card();
 

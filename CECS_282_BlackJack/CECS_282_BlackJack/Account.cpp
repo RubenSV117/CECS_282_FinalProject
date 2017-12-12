@@ -19,7 +19,7 @@ void Account::withdraw(double amount)
 	if (balance - amount < 0)
 	{
 		cout << "\nInsufficient funds to withdraw amount of $" << amount
-			<< " , current balance is $" << balance << endl;
+			<< ", current balance is $" << balance << endl;
 	}
 		
 	else
@@ -57,7 +57,7 @@ double Account::getInitialBal()
 
 	for (char c : amountStr)
 	{
-		if (!isdigit(c))
+		if (!isdigit(c) && c != '.')
 			isValid = false;
 	}
 
@@ -74,7 +74,7 @@ double Account::getInitialBal()
 
 		for (char c : amountStr)
 		{
-			if (!isdigit(c))
+			if (!isdigit(c) && c != '.')
 				isValid = false;
 		}
 

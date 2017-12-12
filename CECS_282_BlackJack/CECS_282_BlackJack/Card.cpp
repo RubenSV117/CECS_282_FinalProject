@@ -32,6 +32,16 @@ int Card::getValue()
 	return value;
 }
 
+void Card::revertAceToOne()
+{
+	value = 1;
+}
+
+string Card::getRank()
+{
+	return rank;
+}
+
 void Card::printCard()
 {
 	//rank
