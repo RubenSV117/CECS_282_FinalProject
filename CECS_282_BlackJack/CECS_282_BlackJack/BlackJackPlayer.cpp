@@ -45,6 +45,7 @@ int main()
 	{
 		cout << "--------------------------------------------------" << endl;
 		//reset lose condition, player and dealer hands, and reset the gameDeck
+		//Unless the player is playing their second hand after splitting
 		if (!playerHasSplit)
 		{
 			resetGame();
@@ -60,7 +61,8 @@ int main()
 			cout << "\nYour ";
 			playerHand.printHand(playerHand.getSize());
 		}				
-			
+		
+		//If the player has chosen to split and hasn't done so yet
 		else if(playerHasSplit && !hasPlayedSecondHand)
 		{
 			playerHand.clear();
@@ -72,14 +74,6 @@ int main()
 			playerHand.add(c2);
 
 			playerSecondHand.clear();
-
-			//cout << "--------------------------------------------------" << endl;
-			//
-			//cout << "\nYour First ";
-			//playerHand.printHand(playerHand.getSize());
-
-			////cout << "\nYour Second ";
-			////playerSecondHand.printHand(playerSecondHand.getSize());
 
 			canSplit = false;
 			hasPlayedSecondHand = true;
@@ -95,6 +89,7 @@ int main()
 		
 		while (!roundOver)
 		{
+		
 			//print second hand if player split
 			if (playerHasSplit)
 			{
@@ -110,7 +105,6 @@ int main()
 
 			string choice = getMove();
 
-
 			//Stand
 			if (choice == "0")
 				stand();
@@ -125,6 +119,7 @@ int main()
 		
 		}
 		
+		//If the round is over for the first hand, play the next round with the second hand
 		if (playerHasSplit && !hasPlayedSecondHand)
 		{
 			cout << "--------------------------------------------------" << endl;
@@ -279,10 +274,26 @@ void drawCards(CardDeck& handToAddTo, int numOfCards, bool isPlayerHand)
 	//if dealer also got a blackjack, the player gets half their bet back
 	if (handToAddTo.getHandValue() == 21)
 	{
+
 		if (isPlayerHand)
 		{
-			cout << "\n\nBlackjack. You win this round and win double your bet: $" << (currentBet * 2)  << endl;
-			playerAccount.deposit(currentBet * 2);
+			//if dealer also got a blackjack, the player gets half their bet back
+			if (dealerHand.getHandValue() == 21)
+			{
+				cout << "\nBoth You and dealer got a blackjack, round ends in a tie. "
+					<< "You are refunded half of your bet: $" << (currentBet / 2);
+
+				playerAccount.deposit(currentBet / 2);
+			}
+
+			//else the player wins double the amount they bet
+			else
+			{
+				cout << "\nBlackjack. You win this round and win double your bet: $" << (currentBet * 2) << endl;
+				playerAccount.deposit(currentBet * 2);
+			}
+
+			roundOver = true;
 		}
 
 		else
@@ -370,27 +381,7 @@ void hit()
 		roundOver = true;
 	}
 
-	//if hand is 21 after Hit
-	if (playerHand.getHandValue() == 21)
-	{
-		//if dealer also got a blackjack, the player gets half their bet back
-		if (dealerHand.getHandValue() == 21)
-		{
-			cout << "\nBoth You and dealer got a blackjack, round ends in a tie. "
-				<< "You are refunded half of your bet: $" << (currentBet / 2);
-
-			playerAccount.deposit(currentBet / 2);
-		}
-
-		//else the player wins double the amount they bet
-		else
-		{
-			cout << "\nBlackjack. You win this round and win double your bet: $" << (currentBet * 2) << endl;
-			playerAccount.deposit(currentBet * 2);
-		}
-
-		roundOver = true;
-	}
+	
 }
 
 /*
