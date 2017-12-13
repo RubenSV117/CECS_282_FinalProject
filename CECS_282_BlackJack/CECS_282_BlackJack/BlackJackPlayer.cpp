@@ -31,6 +31,7 @@ bool roundOver = false;
 bool canSplit = false;
 bool playerHasSplit = false;
 bool hasPlayedSecondHand = false;
+bool dealerGotBJ_inStand = false;
 double currentBet = 0;
 void hit();
 void stand();
@@ -294,6 +295,7 @@ void drawCards(CardDeck& handToAddTo, int numOfCards, bool isPlayerHand)
 
 		else
 		{
+			dealerGotBJ_inStand = true;
 			cout << "\n\nDealer's ";
 			dealerHand.printHand(dealerHand.getSize());
 
@@ -348,6 +350,7 @@ void resetGame()
 	roundOver = false;
 	playerHasSplit = false;
 	canSplit = false;
+	dealerGotBJ_inStand = false;
 	//empty player, dealer, and gameDeck before dealing them new cards
 	playerHand.clear();
 	playerSecondHand.clear();
@@ -392,18 +395,22 @@ void stand()
 		drawCards(dealerHand, 1, false);
 	}
 
-	cout << "\nDealer's ";
-	dealerHand.printHand(dealerHand.getSize());
-
-	//at this point the player has less than 21, so if the dealer gets blackjack,
-	//the dealer wins the round
-	if (dealerHand.getHandValue() == 21)
+	if (!dealerGotBJ_inStand)
 	{
-		cout << "\n\nThe dealer has blackjack." << endl;
+		cout << "\nDealer's ";
+		dealerHand.printHand(dealerHand.getSize());
+
+		//at this point the player has less than 21, so if the dealer gets blackjack,
+		//the dealer wins the round
+		if (dealerHand.getHandValue() == 21)
+		{
+			cout << "\n\nThe dealer has blackjack." << endl;
+		}
 	}
+	
 
 	//dealer busts
-	else if (dealerHand.getHandValue() > 21)
+	if (dealerHand.getHandValue() > 21)
 	{
 		cout << "\n\nThe dealer busts. You win this round and win double your bet: $" << (currentBet * 2) << endl;
 		playerAccount.deposit(currentBet * 2);
