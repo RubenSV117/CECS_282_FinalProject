@@ -89,7 +89,8 @@ int main()
 		
 		while (!roundOver)
 		{
-		
+			
+
 			//print second hand if player split
 			if (playerHasSplit)
 			{
@@ -104,7 +105,7 @@ int main()
 			cout << "__";
 
 			string choice = getMove();
-
+			cout << "-----------------------------" << endl;
 			//Stand
 			if (choice == "0")
 				stand();
@@ -128,11 +129,6 @@ int main()
 
 			roundOver = false;
 		}
-			
-		
-
-		/*if (playerHasSplit && hasPlayedSecondHand)
-		{*/
 
 		//If they still have money after the round, allow them another turn
 		if (playerAccount.getBalance() > 0 && roundOver)

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Account">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAACgAAAAAACAAAJAAAABAAAAAACAgAAAkA=</HashCode>
+      <FileName>Account.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Card">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Card::SUIT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Card.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEBAAAAgAQABACAAAEAAAAAAAAAAACEAAAAAAAAAAgA=</HashCode>
+      <FileName>Card.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardDeck">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAIAAAAIEAAEASEAQAAAAAEAAAAAAAAACAAA=</HashCode>
+      <FileName>CardDeck.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAQAAAhA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
