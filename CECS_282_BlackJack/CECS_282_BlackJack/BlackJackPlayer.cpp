@@ -322,7 +322,7 @@ string getMove()
 	cin >> choice;
 
 	bool validChoice = true;
-	if (choice.size() != 1 || !isdigit(choice[0]) || (stoi(choice) != 0 && stoi(choice) != 1) || (canSplit && stoi(choice) == 2))
+	if (choice.size() != 1 || !isdigit(choice[0]) || (stoi(choice) != 0 && stoi(choice) != 1 && stoi(choice) != 2) || (!canSplit && stoi(choice) == 2))
 		validChoice = false;
 
 	while (!validChoice)
@@ -335,7 +335,7 @@ string getMove()
 		cin >> choice;
 
 		validChoice = true;
-		if (choice.size() != 1 || !isdigit(choice[0]) || (stoi(choice) != 0 && stoi(choice) != 1) || (canSplit && stoi(choice) == 2))
+		if (choice.size() != 1 || !isdigit(choice[0]) || (stoi(choice) != 0 && stoi(choice) != 1 && stoi(choice) != 2) || (!canSplit && stoi(choice) == 2))			
 			validChoice = false;
 	}
 
