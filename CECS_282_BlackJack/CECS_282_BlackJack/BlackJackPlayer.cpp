@@ -214,7 +214,7 @@ double getBet(Account& playerAcc)
 	if (isValid && (stod(amountStr) <= 0 || stod(amountStr) > playerAcc.getBalance()))
 		isValid = false;
 
-	if (stod(amountStr) > playerAcc.getBalance())
+	if (isValid && stod(amountStr) > playerAcc.getBalance())
 	{
 		cout << "\nInsuffienct funds to place a bet of $" << stod(amountStr)
 			<< ", your balance is $" << playerAcc.getBalance() << endl;
@@ -239,7 +239,7 @@ double getBet(Account& playerAcc)
 		if (isValid && (stod(amountStr) <= 0 || stod(amountStr) > playerAcc.getBalance()))
 			isValid = false;
 
-		if (stod(amountStr) > playerAcc.getBalance())
+		if (isValid && stod(amountStr) > playerAcc.getBalance())
 		{
 			cout << "\nInsuffienct funds to place bet of $" << stod(amountStr)
 				<< " , your balance is $" << playerAcc.getBalance() << endl;
